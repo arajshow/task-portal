@@ -3,6 +3,7 @@ import { useSelector} from 'react-redux';
 import { RootState } from "./redux/store";
 import './App.css'
 import Modal from './Components/Modal';
+import Task from './Components/Task';
 
 
 const App: React.FC = () => {
@@ -80,17 +81,14 @@ const App: React.FC = () => {
             <h3 className="text-lg font-semibold mb-2">
               {columnName} ({columnContent.columnTasks.length})
             </h3>
-            <ul className="space-y-2">
+            <div className="space-y-2">
               {columnContent.columnTasks.map((taskId) => {
                 const task = tasks.find((t) => t.id === taskId);
                 return task ? (
-                  <li key={task.id} className="bg-white p-2 rounded shadow-sm">
-                    <h4 className="font-bold">{task.taskTitle}</h4>
-                    <p className="text-sm text-gray-600">{task.taskDescription}</p>
-                  </li>
+                  <Task key={task.id} task={task} />
                 ) : null;
               })}
-            </ul>
+            </div>
           </div>
         ))}
       </div>
