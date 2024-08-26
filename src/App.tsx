@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from "./redux/store";
-import { addTask, removeTask} from "./redux/slice/taskSlice";
-import { addColumn, addTaskToColumn, removeTaskFromColumn, moveTask } from './redux/slice/columnSlice';
 import './App.css'
 import Modal from './Components/Modal';
 
 
 const App: React.FC = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalValue, setModalValue] = useState("");
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,21 +18,21 @@ const App: React.FC = () => {
   const columns = useSelector((state: RootState) => state.columns);
 
   // Example function to add a new task
-  const handleAddTask = () => {
-    const newTask = {
-      id: new Date().toISOString(), // Use a timestamp as a unique ID
-      taskTitle: 'New Task',
-      taskDescription: 'Description of the new task',
-    };
-    dispatch(addTask(newTask)); // Dispatch the addTask action
-  };
+  // const handleAddTask = () => {
+  //   const newTask = {
+  //     id: new Date().toISOString(), // Use a timestamp as a unique ID
+  //     taskTitle: 'New Task',
+  //     taskDescription: 'Description of the new task',
+  //   };
+  //   dispatch(addTask(newTask)); // Dispatch the addTask action
+  // };
 
-  // Filter tasks based on the search term
-  const filteredTasks = tasks.filter(
-    (task) =>
-      task.taskTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      task.taskDescription.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // // Filter tasks based on the search term
+  // const filteredTasks = tasks.filter(
+  //   (task) =>
+  //     task.taskTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     task.taskDescription.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
   return (
     <div className="p-6">
